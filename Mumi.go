@@ -15,7 +15,6 @@ func Convert(word string) string {
 	return toString(deleteDouplicates(array))
 }
 
-
 // Helper functions
 func toArray(word string) []string {
 	return strings.Split(word,"")
@@ -46,8 +45,11 @@ func toString(array []string) string {
 }
 
 func deleteDouplicates(array []string) []string {
-	for i := 1; i < len(array); i++ {
+	for i := 1; i < len(array)-1; i++ {
 		if array[i] == array [i-1] {
+			if array[i] == array[i+1] {
+				array[i+1] = ""
+			}
 			array[i] = ""
 		}
 	}
